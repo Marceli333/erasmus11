@@ -27,15 +27,17 @@ export function AppCard({ app }: AppCardProps) {
 
 function getCategoryClass(category: string): string {
   switch (category) {
-    case "quiz":
+    case "intensive-learning":
       return "bg-[#d6e9ff]"
-    case "interaktywne":
+    case "speaking":
       return "bg-[#d4edda]"
-    case "prezentacja":
+    case "immersion":
       return "bg-[#fff3cd]"
-    case "komunikacja":
+    case "gamification":
+      return "bg-[#e0cffc]"
+    case "writing":
       return "bg-[#f8d7da]"
-    case "inne":
+    case "other":
     default:
       return "bg-[#e2e3e5]"
   }

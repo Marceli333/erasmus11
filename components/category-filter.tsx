@@ -1,12 +1,15 @@
 "use client"
 
 import type React from "react"
+
 import { useSearchParams, useRouter, usePathname } from "next/navigation"
+import { useLanguage } from "@/contexts/language-context"
 
 export function CategoryFilter() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const pathname = usePathname()
+  const { t } = useLanguage()
 
   const currentCategory = searchParams.get("category") || "all"
 
@@ -23,22 +26,25 @@ export function CategoryFilter() {
   return (
     <div className="flex flex-wrap justify-center gap-2 mb-8">
       <FilterButton active={currentCategory === "all"} onClick={() => setCategory("all")}>
-        Wszystko
+        {t("filter.all")}
       </FilterButton>
-      <FilterButton active={currentCategory === "quiz"} onClick={() => setCategory("quiz")}>
-        Quizy
+      <FilterButton active={currentCategory === "intensive-learning"} onClick={() => setCategory("intensive-learning")}>
+        {t("filter.intensive-learning")}
       </FilterButton>
-      <FilterButton active={currentCategory === "interaktywne"} onClick={() => setCategory("interaktywne")}>
-        Interaktywne
+      <FilterButton active={currentCategory === "speaking"} onClick={() => setCategory("speaking")}>
+        {t("filter.speaking")}
       </FilterButton>
-      <FilterButton active={currentCategory === "prezentacja"} onClick={() => setCategory("prezentacja")}>
-        Prezentacje
+      <FilterButton active={currentCategory === "immersion"} onClick={() => setCategory("immersion")}>
+        {t("filter.immersion")}
       </FilterButton>
-      <FilterButton active={currentCategory === "komunikacja"} onClick={() => setCategory("komunikacja")}>
-        Komunikacja
+      <FilterButton active={currentCategory === "gamification"} onClick={() => setCategory("gamification")}>
+        {t("filter.gamification")}
       </FilterButton>
-      <FilterButton active={currentCategory === "inne"} onClick={() => setCategory("inne")}>
-        Inne
+      <FilterButton active={currentCategory === "writing"} onClick={() => setCategory("writing")}>
+        {t("filter.writing")}
+      </FilterButton>
+      <FilterButton active={currentCategory === "other"} onClick={() => setCategory("other")}>
+        {t("filter.other")}
       </FilterButton>
     </div>
   )
